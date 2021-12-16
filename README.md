@@ -5,5 +5,5 @@
 ## Bonfire is a communication application, with voice spaces, chat channels and screen share.
 
 <p align="center">
-    ![Bonfire Gif](/.README/bonfire.gif)
+    <img src="/.README/bonfire.gif" />
 </p>
