@@ -49,6 +49,7 @@
     ],
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": [
+      0,
       {
         "unnamedComponents": "arrow-function"
       }
@@ -78,9 +79,7 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": [
-          "**/*.spec.js"
-        ]
+        "devDependencies": true
       }
     ]
   },
