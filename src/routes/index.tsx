@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Routes as Switch,
   Route,
 } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
+import { ThemeProvider } from 'styled-components';
 
-const Routes: React.FC = () => {
+import { GlobalStyle } from '../styles/global';
+import { dark, light } from '../styles/themes';
+
+const Routes = () => {
+  const [theme, setTheme] = useState(dark);
   return (
-    <Router>
-      <Switch>
-        <Route path="/" element={} />
-      </Switch>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <ChakraProvider>
+        <Router>
+          <Switch>
+            <Route path="/" />
+          </Switch>
+        </Router>
+      </ChakraProvider>
+    </ThemeProvider>
   );
 };
 
