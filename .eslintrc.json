@@ -69,11 +69,7 @@
             "sibling",
             "index"
           ]
-        ],
-        "alphabetize": {
-          "order": "asc",
-          "ignoreCase": true
-        }
+        ]
       }
     ],
     "import/no-extraneous-dependencies": [

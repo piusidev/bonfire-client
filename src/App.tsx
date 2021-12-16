@@ -1,7 +1,8 @@
 import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 const App = () => {
-  return <h1>Salve</h1>;
+  return <ChakraProvider />;
 };
 
 export default App;
