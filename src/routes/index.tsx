@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import {
   BrowserRouter as Router,
   Routes as Switch,
   Route,
 } from 'react-router-dom';
-import { ChakraProvider } from '@chakra-ui/react';
-import { ThemeProvider } from 'styled-components';
 
+import { ThemeProvider, ThemeContext } from '../contexts/theme-context';
 import { GlobalStyle } from '../styles/global';
-import { dark, light } from '../styles/themes';
 
-const Routes = () => {
-  const [theme, setTheme] = useState(dark);
+const Routes: React.FC = () => {
+  const { toggleTheme } = useContext(ThemeContext);
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <GlobalStyle />
-      <ChakraProvider>
-        <Router>
-          <Switch>
-            <Route path="/" />
-          </Switch>
-        </Router>
-      </ChakraProvider>
+      <button type="button" onClick={() => toggleTheme()}>
+        Clique
+      </button>
+      {/* <Router>
+        <Switch>
+          <Route path="/" />
+        </Switch>
+      </Router> */}
     </ThemeProvider>
   );
 };

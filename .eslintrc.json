@@ -54,6 +54,7 @@
         "unnamedComponents": "arrow-function"
       }
     ],
+    "react/destructuring-assignment": ["never"],
     "prettier/prettier": "error",
     "import/no-unresolved": "error",
     "import/prefer-default-export": "off",

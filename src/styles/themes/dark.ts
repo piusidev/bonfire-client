@@ -2,6 +2,6 @@ export const dark = {
   title: 'dark',
 
   colors: {
-    background: '#ccc',
+    background: '#000',
   },
 };
