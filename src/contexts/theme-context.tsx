@@ -17,7 +17,7 @@ type ThemeContextProviderProps = {
 
 export const ThemeContext = createContext({} as ThemeContextInterface);
 
-export const ThemeProvider: React.FC = (props: ThemeContextProviderProps) => {
+export const ThemeProvider: React.FC<ThemeContextProviderProps> = (props) => {
   const [theme, setTheme] = useState<DefaultTheme>(dark);
 
   const toggleTheme = () => {
