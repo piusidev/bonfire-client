@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 import React, { createContext, useState, ReactNode } from 'react';
 import {
   ThemeProvider as CustomThemeProvider,

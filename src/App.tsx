@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { ThemeProvider, ThemeContext } from './contexts/theme-context';
+import { ThemeProvider } from './contexts/theme-context';
 import { GlobalStyle } from './styles/global';
 import Routes from './routes';
 
