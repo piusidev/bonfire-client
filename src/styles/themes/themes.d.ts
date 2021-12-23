@@ -1,10 +1,5 @@
 import 'styled-components';
-
+import { CustomTheme } from './default.d';
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    title?: string;
-    colors?: {
-      background?: string;
-    };
-  }
+  export interface DefaultTheme extends CustomTheme {}
 }
