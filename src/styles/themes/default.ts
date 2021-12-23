@@ -1,4 +1,4 @@
-import { CustomTheme } from './default.d';
+import { CustomTheme } from "./default.d";
 
 export const customTheme: CustomTheme = {
   fonts: {
