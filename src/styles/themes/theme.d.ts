@@ -1,15 +1,19 @@
-export interface CustomTheme {
-  title?: string;
-  colors?: Colors;
-  fonts?: Fonts;
-  fontSizes?: FontSizes;
-  fontWeights?: FontWeights;
-  lineHeights?: LineHeights;
-  letterSpacings?: LetterSpacings;
-  zIndices?: ZIndices;
-  radius?: Radius;
-  breakpoints?: Breakpoints;
-  sizes?: Sizes;
+import 'styled-components';
+
+declare module 'styled-components' {
+  export interface DefaultTheme {
+    title?: string;
+    colors?: Colors;
+    fonts?: Fonts;
+    fontSizes?: FontSizes;
+    fontWeights?: FontWeights;
+    lineHeights?: LineHeights;
+    letterSpacings?: LetterSpacings;
+    zIndices?: ZIndices;
+    radius?: Radius;
+    breakpoints?: Breakpoints;
+    sizes?: Sizes;
+  }
 }
 
 export interface Colors {
