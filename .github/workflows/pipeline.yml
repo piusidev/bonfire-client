@@ -2,9 +2,9 @@ name: Pipeline
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, dev ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, dev ]
 
   workflow_dispatch:
 
@@ -37,6 +37,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           
       - name: Build project
-      - run: |
+        run: |
           npm install
           npm run build
