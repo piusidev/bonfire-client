@@ -25,7 +25,7 @@ jobs:
           npm install
           npm run lint --fix
         
-  build:
+  unit-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           
-      - name: Build project
+      - name: Run unit tests
         run: |
           npm install
-          npm run build
+          npm run test:unit
