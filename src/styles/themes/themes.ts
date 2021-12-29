@@ -1,4 +1,4 @@
-import { customTheme } from "."
+import { customTheme } from '.';
 
 export const dark = {
   ...customTheme,
@@ -7,7 +7,7 @@ export const dark = {
   colors: {
     background: '#000',
   },
-}
+};
 
 export const light = {
   ...customTheme,
@@ -16,4 +16,4 @@ export const light = {
   colors: {
     background: '#ccc',
   },
-}
+};

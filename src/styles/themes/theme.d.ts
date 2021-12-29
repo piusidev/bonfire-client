@@ -97,7 +97,7 @@ interface Breakpoints {
 }
 
 interface Sizes {
-  container?: ContainerSizes
+  container?: ContainerSizes;
 }
 
 interface ContainerSizes {
