@@ -20,10 +20,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Install node_modules
+        run: npm install
+
       - name: Fix lint errors
-        run: |
-          npm install
-          npm run lint --fix
+        run: npm run lint --fix
         
   unit-test:
     runs-on: ubuntu-latest
@@ -35,8 +36,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          
+
+      - name: Install node_modules
+        run: npm install
+     
       - name: Run unit tests
-        run: |
-          npm install
-          npm run test:unit
+        run: npm run test:unit
