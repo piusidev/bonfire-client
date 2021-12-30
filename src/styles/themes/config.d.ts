@@ -1,19 +1,15 @@
-import 'styled-components';
-
-declare module 'styled-components' {
-  export interface DefaultTheme {
-    title?: string;
-    colors?: Colors;
-    fonts?: Fonts;
-    fontSizes?: FontSizes;
-    fontWeights?: FontWeights;
-    lineHeights?: LineHeights;
-    letterSpacings?: LetterSpacings;
-    zIndices?: ZIndices;
-    radius?: Radius;
-    breakpoints?: Breakpoints;
-    sizes?: Sizes;
-  }
+export interface ThemeConfig {
+  title?: string;
+  colors?: Colors;
+  fonts?: Fonts;
+  fontSizes?: FontSizes;
+  fontWeights?: FontWeights;
+  lineHeights?: LineHeights;
+  letterSpacings?: LetterSpacings;
+  zIndices?: ZIndices;
+  radius?: Radius;
+  breakpoints?: Breakpoints;
+  sizes?: Sizes;
 }
 
 export interface Colors {

@@ -1,6 +1,4 @@
-import { DefaultTheme } from 'styled-components';
-
-export const customTheme: DefaultTheme = {
+export const themeConfig = {
   fonts: {
     primary: '"Comfortaa", cursive',
   },
