@@ -24,6 +24,10 @@ module.exports = [
     }
   },
   {
+    test: /\.css$/,
+    use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+  },
+  {
     test: /\.(png|jpe?g|gif)$/i,
     loader: 'file-loader',
     options: {
@@ -31,7 +35,10 @@ module.exports = [
     },
   },
   {
-    test: /\.css$/,
-    use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
-  }
+    test: /\.(woff|woff2|eot|ttf|otf)$/i,
+    loader: 'file-loader',
+    options: {
+      name: '[path][name].[ext]',
+    },
+  },
 ];
