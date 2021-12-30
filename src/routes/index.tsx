@@ -5,16 +5,10 @@ import {
   Route,
 } from 'react-router-dom';
 
-import { ThemeContext } from '../contexts/theme-context';
+import Loader from '../common/UI/Loader';
 
 const Routes: React.FC = () => {
-  const { toggleTheme } = useContext(ThemeContext);
-
-  return (
-    <button type="button" onClick={() => toggleTheme()}>
-      Clique
-    </button>
-  );
+  return <Loader />;
 };
 
 export default Routes;
