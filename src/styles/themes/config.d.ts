@@ -14,6 +14,14 @@ export interface ThemeConfig {
 
 export interface Colors {
   background?: string;
+  primary: string;
+  secondary: string;
+  highlight: string;
+  disabled: string;
+  error: string;
+  success: string;
+  warning: string;
+  white: string;
 }
 
 interface Fonts {
