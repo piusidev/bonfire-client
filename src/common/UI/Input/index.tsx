@@ -8,6 +8,7 @@ interface InputProps {
   label?: string;
   type?: string;
   disabled?: boolean;
+  value?: string;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -15,6 +16,7 @@ export const Input: React.FC<InputProps> = ({
   label,
   type = 'text',
   disabled = false,
+  value,
 }) => {
   const hasLabel = Boolean(label);
 
@@ -25,7 +27,7 @@ export const Input: React.FC<InputProps> = ({
         <div>
           <FontAwesomeIcon icon={icon} />
         </div>
-        <input type={type} disabled={disabled} />
+        <input type={type} disabled={disabled} value={value} />
       </CustomInput>
     </>
   );

@@ -13,26 +13,26 @@ declare module 'styled-components' {
       error: string;
       success: string;
       warning: string;
-      white: string;
+      text: string;
     };
   }
 }
 
 export const defaultColors = {
-  primary: '#EC4E20',
-  secondary: '',
+  primary: '#bd93f9',
+  secondary: '#ff79c6',
 
   background: '#282A36',
 
-  highlight: '',
-  disabled: '',
+  highlight: '#8be9fd',
+  disabled: '#6272a4',
   divider: '#6272a4',
 
-  error: '#C50000',
-  success: '#0761D1',
-  warning: '#F5A623',
+  text: '#f2f2f2',
 
-  white: '#FFFCE8',
+  error: '#C50000',
+  success: '#50fa7b',
+  warning: '#F5A623',
 };
 
 export const dark = {

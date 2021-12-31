@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { themeConfig } from '../../../styles/themes';
 
 export const Label = styled.label`
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.primary};
   font-size: ${themeConfig.fontSizes.md};
   font-weight: ${themeConfig.fontWeights.bold};
 
@@ -36,6 +36,8 @@ export const CustomInput = styled.div`
     border: none;
 
     background: ${props => props.theme.colors.background};
-    color: ${props => props.theme.colors.white};
+    color: ${props => props.theme.colors.text};
+
+    font-size: ${themeConfig.fontSizes.md};
   }
 `;
