@@ -5,10 +5,10 @@ import {
   Route,
 } from 'react-router-dom';
 
-import Loader from '../common/UI/Loader';
+import { RegisterTemplate } from '../templates';
 
 const Routes: React.FC = () => {
-  return <Loader />;
+  return <RegisterTemplate />;
 };
 
 export default Routes;

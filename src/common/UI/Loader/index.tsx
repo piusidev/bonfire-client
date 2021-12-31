@@ -3,12 +3,10 @@ import React from 'react';
 import { LoaderSection } from './styles';
 import BonfireGif from '../../assets/images/Loader/bonfire.gif';
 
-const Loader: React.FC = () => {
+export const Loader: React.FC = () => {
   return (
     <LoaderSection>
       <img src={BonfireGif} alt="Loading..." />
     </LoaderSection>
   );
 };
-
-export default Loader;
