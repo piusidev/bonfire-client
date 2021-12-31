@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 export const axiosClient = () => {
-  const baseURL = 'https://bonfire-dev-api.herokuapp.com/api';
-
+  const baseURL = process.env.BONFIRE_SERVER_ENDPOINT;
   const api = axios.create({
     baseURL,
     headers: {
