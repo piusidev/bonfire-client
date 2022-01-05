@@ -1,27 +1,48 @@
 import React from 'react';
 import { faUser, faKey, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { Input, Button } from '../../../common/UI';
 import { Form } from './styles';
-import { register } from './use-cases';
+
+interface IFormInputs {
+  name?: string;
+  email?: string;
+  password?: string;
+  repeatPassword?: string;
+}
 
 export const RegisterForm: React.FC = () => {
-  const data = {
-    name: 'Leonardo',
-    email: 'sdfdsf@jasddfsdfha.com',
-    password: '123456',
-    passwordConfirmation: '123456',
+  const { register, handleSubmit } = useForm<IFormInputs>();
+
+  const sendUserRegister: SubmitHandler<IFormInputs> = data => {
+    console.log(data);
   };
 
-  register(data);
-
   return (
-    <Form>
-      <Input label="Name" icon={faUser} />
-      <Input label="Email" icon={faEnvelope} />
-      <Input label="Password" icon={faKey} type="password" />
-      <Input label="Repeat password" icon={faKey} type="password" />
-      <Button label="Register" />
+    <Form onSubmit={handleSubmit(sendUserRegister)}>
+      <Input label="Name" name="name" icon={faUser} {...register('name')} />
+      <Input
+        label="Email"
+        name="email"
+        icon={faEnvelope}
+        {...register('email')}
+      />
+      <Input
+        label="Password"
+        icon={faKey}
+        type="password"
+        name="password"
+        {...register('password')}
+      />
+      <Input
+        label="Repeat password"
+        icon={faKey}
+        type="password"
+        name="password"
+        {...register('repeatPassword')}
+      />
+      <Button type="submit" label="Register" />
     </Form>
   );
 };
