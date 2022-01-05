@@ -2,13 +2,13 @@ import React from 'react';
 
 import { CustomButton } from './styles';
 
-interface ButtonProps {
+interface IButtonProps {
   label?: string;
   type?: 'button' | 'submit' | 'reset';
   action?: () => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<IButtonProps> = ({
   label,
   type = 'button',
   action,

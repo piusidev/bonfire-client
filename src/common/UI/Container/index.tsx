@@ -2,12 +2,12 @@ import React from 'react';
 
 import { FluidContainer } from './styles';
 
-export interface ContainerProps {
+export interface IContainerProps {
   align?: string;
   justify?: string;
 }
 
-export const Container: React.FC<ContainerProps> = ({
+export const Container: React.FC<IContainerProps> = ({
   children,
   align,
   justify,

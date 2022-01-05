@@ -1,13 +1,13 @@
 import { api } from '../../../services/api';
 
-interface RegisterProps {
+interface IRegisterProps {
   name?: string;
   email?: string;
   password?: string;
   passwordConfirmation?: string;
 }
 
-export const register = (params: RegisterProps) => {
+export const register = (params: IRegisterProps) => {
   const data = JSON.stringify(params);
 
   const response = api.post('/signup', data);

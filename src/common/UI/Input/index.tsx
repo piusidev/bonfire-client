@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { CustomInput, Label } from './styles';
 
-export type InputProps = {
+export type IInputProps = {
   icon?: string | any;
   label?: string;
   type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
@@ -11,7 +11,7 @@ export type InputProps = {
   value?: string;
 };
 
-export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
+export const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
   ({ icon, label, type = 'text', disabled = false, value, ...props }, ref) => {
     const hasLabel = Boolean(label);
 

@@ -1,18 +1,18 @@
-export interface ThemeConfig {
+export interface IThemeConfig {
   title?: string;
-  colors?: Colors;
-  fonts?: Fonts;
-  fontSizes?: FontSizes;
-  fontWeights?: FontWeights;
-  lineHeights?: LineHeights;
-  letterSpacings?: LetterSpacings;
-  zIndices?: ZIndices;
-  radius?: Radius;
-  breakpoints?: Breakpoints;
-  sizes?: Sizes;
+  colors?: IColors;
+  fonts?: IFonts;
+  fontSizes?: IFontSizes;
+  fontWeights?: IFontWeights;
+  lineHeights?: ILineHeights;
+  letterSpacings?: ILetterSpacings;
+  zIndices?: IZIndices;
+  radius?: IRadius;
+  breakpoints?: IBreakpoints;
+  sizes?: ISizes;
 }
 
-export interface Colors {
+export interface IColors {
   background?: string;
   primary: string;
   secondary: string;
@@ -24,11 +24,11 @@ export interface Colors {
   white: string;
 }
 
-interface Fonts {
+interface IFonts {
   primary?: string;
 }
 
-interface FontSizes {
+interface IFontSizes {
   xs?: string;
   sm?: string;
   md?: string;
@@ -36,7 +36,7 @@ interface FontSizes {
   xl?: string;
 }
 
-interface FontWeights {
+interface IFontWeights {
   hairline?: number;
   thin?: number;
   light?: number;
@@ -48,7 +48,7 @@ interface FontWeights {
   black?: number;
 }
 
-interface LineHeights {
+interface ILineHeights {
   normal?: string;
   none?: number;
   shorter?: number;
@@ -58,7 +58,7 @@ interface LineHeights {
   taller?: string;
 }
 
-interface LetterSpacings {
+interface ILetterSpacings {
   tighter?: string;
   tight?: string;
   normal?: string;
@@ -67,7 +67,7 @@ interface LetterSpacings {
   widest?: string;
 }
 
-interface ZIndices {
+interface IZIndices {
   hide?: number;
   auto?: string;
   base?: number;
@@ -83,7 +83,7 @@ interface ZIndices {
   tooltip?: number;
 }
 
-interface Radius {
+interface IRadius {
   none?: string;
   sm?: string;
   base?: string;
@@ -93,18 +93,18 @@ interface Radius {
   full?: string;
 }
 
-interface Breakpoints {
+interface IBreakpoints {
   sm?: string;
   md?: string;
   lg?: string;
   xl?: string;
 }
 
-interface Sizes {
-  container?: ContainerSizes;
+interface ISizes {
+  container?: IContainerSizes;
 }
 
-interface ContainerSizes {
+interface IContainerSizes {
   sm?: string;
   md?: string;
   lg?: string;
