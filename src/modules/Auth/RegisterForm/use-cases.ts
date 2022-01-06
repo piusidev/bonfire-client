@@ -33,5 +33,6 @@ export const validations = yup.object({
     ),
   repeatPassword: yup
     .string()
+    .required()
     .oneOf([yup.ref('password'), null], 'Passwords must match'),
 });
