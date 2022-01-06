@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { CustomInput, Label } from './styles';
 
-export type IInputProps = {
+interface IInputProps {
   icon?: string | any;
   label?: string;
   type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
   disabled?: boolean;
-  error?: boolean;
+  error?: string;
   value?: string;
-};
+}
 
 export const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
   (

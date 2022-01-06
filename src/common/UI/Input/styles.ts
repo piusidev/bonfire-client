@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { themeConfig } from '../../../styles/themes';
 
 interface ICustomInputProps {
-  error?: boolean;
+  error?: string;
 }
 
 export const Label = styled.label`
@@ -18,8 +18,12 @@ export const CustomInput = styled.div<ICustomInputProps>`
   display: flex;
   padding: 0.5rem;
 
-  border: 2px solid ${props => props.theme.colors.divider};
+  border: 2px solid
+    ${props =>
+      props.error ? props.theme.colors.error : props.theme.colors.divider};
   border-radius: ${themeConfig.radius.md};
+
+  transition: all 0.3s ease-in-out;
 
   div:nth-child(1) {
     width: 3rem;
