@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 import { themeConfig } from '../../../styles/themes';
 
+interface ICustomInputProps {
+  error?: boolean;
+}
+
 export const Label = styled.label`
   color: ${props => props.theme.colors.primary};
   font-size: ${themeConfig.fontSizes.md};
@@ -10,7 +14,7 @@ export const Label = styled.label`
   margin: 0.3rem 0 0 0.3rem;
 `;
 
-export const CustomInput = styled.div`
+export const CustomInput = styled.div<ICustomInputProps>`
   display: flex;
   padding: 0.5rem;
 

@@ -8,17 +8,21 @@ export type IInputProps = {
   label?: string;
   type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
   disabled?: boolean;
+  error?: boolean;
   value?: string;
 };
 
 export const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
-  ({ icon, label, type = 'text', disabled = false, value, ...props }, ref) => {
+  (
+    { icon, label, type = 'text', disabled = false, value, error, ...props },
+    ref,
+  ) => {
     const hasLabel = Boolean(label);
 
     return (
       <>
         {hasLabel ? <Label>{label}</Label> : null}
-        <CustomInput>
+        <CustomInput error={error}>
           <div>
             <FontAwesomeIcon icon={icon} />
           </div>

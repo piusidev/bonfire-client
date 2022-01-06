@@ -1,7 +1,9 @@
 import React from 'react';
 import { faUser, faKey, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
+import { validations } from './use-cases';
 import { Input, Button } from '../../../common/UI';
 import { Form } from './styles';
 
@@ -13,14 +15,20 @@ interface IFormInputs {
 }
 
 export const RegisterForm: React.FC = () => {
-  const { register, handleSubmit } = useForm<IFormInputs>();
+  const { register, handleSubmit } = useForm<IFormInputs>({
+    resolver: yupResolver(validations),
+  });
 
-  const sendUserRegister: SubmitHandler<IFormInputs> = data => {
+  const onSubmit: SubmitHandler<IFormInputs> = data => {
     console.log(data);
   };
 
+  const onError: SubmitErrorHandler<IFormInputs> = error => {
+    console.log(error);
+  };
+
   return (
-    <Form onSubmit={handleSubmit(sendUserRegister)}>
+    <Form onSubmit={handleSubmit(onSubmit, onError)}>
       <Input label="Name" name="name" icon={faUser} {...register('name')} />
       <Input
         label="Email"

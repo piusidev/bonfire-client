@@ -1,13 +1,13 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { themeConfig } from '../../../styles/themes';
 
-interface FluidContainerProps {
+interface IFluidContainerProps {
   align?: string;
   justify?: string;
 }
 
-export const FluidContainer = styled.div<FluidContainerProps>`
+export const FluidContainer = styled.div<IFluidContainerProps>`
   display: flex;
   margin: 0 auto;
 
