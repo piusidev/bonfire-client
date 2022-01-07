@@ -2,14 +2,7 @@ import * as yup from 'yup';
 
 import { api } from '../../../services/api';
 
-interface IRegisterProps {
-  name?: string;
-  email?: string;
-  password?: string;
-  passwordConfirmation?: string;
-}
-
-export const createUser = (params: IRegisterProps) => {
+export const createUser = (params: IUser) => {
   const data = JSON.stringify(params);
 
   const response = api.post('/signup', data);

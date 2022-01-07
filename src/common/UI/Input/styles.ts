@@ -6,6 +6,14 @@ interface ICustomInputProps {
   error?: string;
 }
 
+export const InputField = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+`;
+
 export const Label = styled.label`
   color: ${props => props.theme.colors.primary};
   font-size: ${themeConfig.fontSizes.md};
@@ -58,4 +66,5 @@ export const CustomInput = styled.div<ICustomInputProps>`
 
 export const Error = styled.span`
   color: ${props => props.theme.colors.text};
+  white-space: wrap;
 `;

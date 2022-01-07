@@ -1,39 +1,28 @@
 /* eslint-disable default-case */
 import React from 'react';
 import { faUser, faKey, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { validations, createUser } from './use-cases';
 import { Input, Button } from '../../../common/UI';
 import { Form } from './styles';
 
-interface IFormInputs {
-  name?: string;
-  email?: string;
-  password?: string;
-  passwordConfirmation?: string;
-}
-
 export const RegisterForm: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormInputs>({
+  } = useForm<IUser>({
     resolver: yupResolver(validations),
   });
 
-  const onSubmit: SubmitHandler<IFormInputs> = data => {
+  const onSubmit: SubmitHandler<IUser> = data => {
     createUser(data);
   };
 
-  const onError: SubmitErrorHandler<IFormInputs> = data => {
-    console.log(data);
-  };
-
   return (
-    <Form onSubmit={handleSubmit(onSubmit, onError)}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <Input
         label="Name"
         name="name"

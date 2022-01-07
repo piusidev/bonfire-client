@@ -2,7 +2,7 @@ import React, { FC, forwardRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-import { CustomInput, Label, Error } from './styles';
+import { InputField, CustomInput, Label, Error } from './styles';
 
 interface IInputProps {
   icon?: string | any;
@@ -22,7 +22,7 @@ export const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
     return (
-      <>
+      <InputField>
         {hasLabel ? <Label>{label}</Label> : null}
         <CustomInput error={error}>
           <div>
@@ -42,7 +42,7 @@ export const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
           ) : null}
         </CustomInput>
         {error ? <Error>{error}</Error> : null}
-      </>
+      </InputField>
     );
   },
 );

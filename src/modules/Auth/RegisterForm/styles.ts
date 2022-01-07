@@ -5,7 +5,7 @@ import { themeConfig } from '../../../styles/themes';
 export const Form = styled.form`
   background: ${props => props.theme.colors.background};
 
-  min-width: 500px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
