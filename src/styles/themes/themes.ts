@@ -22,7 +22,7 @@ export const defaultColors = {
   primary: '#bd93f9',
   secondary: '#ff79c6',
 
-  background: '#282A36',
+  background: '#040d21',
 
   highlight: '#8be9fd',
   disabled: '#6272a4',

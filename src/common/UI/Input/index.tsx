@@ -1,7 +1,8 @@
-import React, { FC, forwardRef } from 'react';
+import React, { FC, forwardRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-import { CustomInput, Label } from './styles';
+import { CustomInput, Label, Error } from './styles';
 
 interface IInputProps {
   icon?: string | any;
@@ -18,6 +19,7 @@ export const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
     ref,
   ) => {
     const hasLabel = Boolean(label);
+    const [showPassword, setShowPassword] = useState<boolean>(false);
 
     return (
       <>
@@ -28,12 +30,18 @@ export const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
           </div>
           <input
             ref={ref}
-            type={type}
+            type={showPassword ? 'text' : type}
             disabled={disabled}
             value={value}
             {...props}
           />
+          {type === 'password' ? (
+            <a onClick={() => setShowPassword(prevState => !prevState)}>
+              <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+            </a>
+          ) : null}
         </CustomInput>
+        {error ? <Error>{error}</Error> : null}
       </>
     );
   },

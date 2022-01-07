@@ -25,14 +25,20 @@ export const CustomInput = styled.div<ICustomInputProps>`
 
   transition: all 0.3s ease-in-out;
 
-  div:nth-child(1) {
+  a {
+    user-select: none;
+    cursor: pointer;
+  }
+
+  div:nth-child(1),
+  a {
     width: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  div:nth-child(1) svg {
+  svg {
     width: 100%;
     color: white;
   }
@@ -48,4 +54,8 @@ export const CustomInput = styled.div<ICustomInputProps>`
 
     font-size: ${themeConfig.fontSizes.md};
   }
+`;
+
+export const Error = styled.span`
+  color: ${props => props.theme.colors.text};
 `;

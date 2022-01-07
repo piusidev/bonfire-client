@@ -21,6 +21,7 @@ const createWindow = (): void => {
     height: 800,
     width: 1200,
     backgroundColor: '#191622',
+    autoHideMenuBar: true,
   });
 
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);

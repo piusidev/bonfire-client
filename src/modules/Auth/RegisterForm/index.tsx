@@ -4,7 +4,7 @@ import { faUser, faKey, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { validations } from './use-cases';
+import { validations, createUser } from './use-cases';
 import { Input, Button } from '../../../common/UI';
 import { Form } from './styles';
 
@@ -12,7 +12,7 @@ interface IFormInputs {
   name?: string;
   email?: string;
   password?: string;
-  repeatPassword?: string;
+  passwordConfirmation?: string;
 }
 
 export const RegisterForm: React.FC = () => {
@@ -25,7 +25,7 @@ export const RegisterForm: React.FC = () => {
   });
 
   const onSubmit: SubmitHandler<IFormInputs> = data => {
-    console.log(data);
+    createUser(data);
   };
 
   const onError: SubmitErrorHandler<IFormInputs> = data => {
@@ -61,8 +61,8 @@ export const RegisterForm: React.FC = () => {
         icon={faKey}
         type="password"
         name="password"
-        error={errors.repeatPassword?.message}
-        {...register('repeatPassword')}
+        error={errors.passwordConfirmation?.message}
+        {...register('passwordConfirmation')}
       />
       <Button type="submit" label="Register" />
     </Form>
