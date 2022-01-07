@@ -9,7 +9,7 @@ interface IRegisterProps {
   passwordConfirmation?: string;
 }
 
-export const register = (params: IRegisterProps) => {
+export const createUser = (params: IRegisterProps) => {
   const data = JSON.stringify(params);
 
   const response = api.post('/signup', data);
@@ -22,17 +22,21 @@ const passwordHasMatch =
   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
 export const validations = yup.object({
-  name: yup.string().required(),
-  email: yup.string().nullable().email().required(),
+  name: yup.string().required('Name is required'),
+  email: yup
+    .string()
+    .nullable()
+    .email('Email must be a valida email')
+    .required('Email is required'),
   password: yup
     .string()
-    .required()
+    .required('Password is required')
     .matches(
       passwordHasMatch,
-      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character',
+      'Must contain 8 characters, one uppercase, one lowercase, one number and one special case character',
     ),
-  repeatPassword: yup
+  passwordConfirmation: yup
     .string()
-    .required()
+    .required('Password confirmation is required')
     .oneOf([yup.ref('password'), null], 'Passwords must match'),
 });
