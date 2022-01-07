@@ -4,7 +4,8 @@ import { faUser, faKey, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { validations, createUser } from './use-cases';
+import { createUser } from './use-cases';
+import { validations } from './validations';
 import { Input, Button } from '../../../common/UI';
 import { Form } from './styles';
 
