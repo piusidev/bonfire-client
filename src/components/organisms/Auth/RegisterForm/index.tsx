@@ -1,7 +1,12 @@
 /* eslint-disable default-case */
 import React from 'react';
 import { faUser, faKey, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
+import {
+  useForm,
+  SubmitHandler,
+  SubmitErrorHandler,
+  FormProvider,
+} from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { createUser } from './use-cases';
@@ -11,11 +16,7 @@ import { InputField } from '../../../molecules';
 import { Form } from './styles';
 
 export const RegisterForm: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<IUser>({
+  const methods = useForm<IUser>({
     resolver: yupResolver(validations),
   });
 
@@ -28,37 +29,35 @@ export const RegisterForm: React.FC = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit, onError)}>
-      <InputField
-        label="Name"
-        name="name"
-        icon={faUser}
-        error={errors.name?.message}
-        {...register('name')}
-      />
-      <InputField
-        label="Email"
-        name="email"
-        icon={faEnvelope}
-        error={errors.email?.message}
-        {...register('email')}
-      />
-      <InputField
-        label="Password"
-        icon={faKey}
-        type="password"
-        name="password"
-        error={errors.password?.message}
-        {...register('password')}
-      />
-      <InputField
-        label="Repeat password"
-        icon={faKey}
-        type="password"
-        name="password"
-        error={errors.passwordConfirmation?.message}
-        {...register('passwordConfirmation')}
-      />
+    <Form onSubmit={methods.handleSubmit(onSubmit, onError)}>
+      <FormProvider {...methods}>
+        <InputField
+          label="Name"
+          name="name"
+          icon={faUser}
+          error={methods.formState.errors.name?.message}
+        />
+        <InputField
+          label="Email"
+          name="email"
+          icon={faEnvelope}
+          error={methods.formState.errors.email?.message}
+        />
+        <InputField
+          label="Password"
+          icon={faKey}
+          type="password"
+          name="password"
+          error={methods.formState.errors.password?.message}
+        />
+        <InputField
+          label="Repeat password"
+          icon={faKey}
+          type="password"
+          name="password"
+          error={methods.formState.errors.passwordConfirmation?.message}
+        />
+      </FormProvider>
       <Button type="submit" label="Register" />
     </Form>
   );

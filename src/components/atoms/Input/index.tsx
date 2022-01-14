@@ -5,14 +5,15 @@ import {
   faEyeSlash,
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
+import { useFormContext } from 'react-hook-form';
 
 import { CustomInput } from './styles';
 
 interface IInputProps {
-  inputRef: any;
-  icon: IconDefinition;
+  name?: string;
+  icon?: IconDefinition;
   label?: string;
-  type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
+  type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
   disabled?: boolean;
   error?: string;
   value?: string;
@@ -24,10 +25,11 @@ export const Input: React.FC<IInputProps> = ({
   disabled = false,
   value,
   error,
-  inputRef,
+  name,
   ...props
 }) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const { register } = useFormContext();
 
   return (
     <CustomInput error={error}>
@@ -35,11 +37,11 @@ export const Input: React.FC<IInputProps> = ({
         <FontAwesomeIcon icon={icon} />
       </div>
       <input
-        ref={inputRef}
         type={showPassword ? 'text' : type}
         disabled={disabled}
         value={value}
         {...props}
+        {...register(name)}
       />
       {type === 'password' ? (
         <a onClick={() => setShowPassword(prevState => !prevState)}>

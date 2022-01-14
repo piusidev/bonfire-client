@@ -1,10 +1,11 @@
-import React, { FC, forwardRef } from 'react';
+import React from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 import { Label, FormError, Input } from '../../atoms';
 import { InputContainer } from './styles';
 
 interface IInputProps {
+  name?: string;
   icon?: IconDefinition;
   label?: string;
   type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
@@ -13,28 +14,16 @@ interface IInputProps {
   value?: string;
 }
 
-export const InputField: FC<IInputProps> = forwardRef<
-  HTMLInputElement,
-  IInputProps
->(
-  (
-    { icon, label, type = 'text', disabled = false, value, error, ...props },
-    ref,
-  ) => {
-    return (
-      <InputContainer>
-        {label ? <Label text={label} /> : null}
-        <Input
-          inputRef={ref}
-          error={error}
-          icon={icon}
-          type={type}
-          disabled={disabled}
-          value={value}
-          {...props}
-        />
-        {error ? <FormError text={error} /> : null}
-      </InputContainer>
-    );
-  },
-);
+export const InputField: React.FC<IInputProps> = ({
+  label,
+  error,
+  ...props
+}) => {
+  return (
+    <InputContainer>
+      {label ? <Label text={label} /> : null}
+      <Input {...props} />
+      {error ? <FormError text={error} /> : null}
+    </InputContainer>
+  );
+};
