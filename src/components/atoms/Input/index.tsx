@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, useState } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash, IconName } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,31 +14,34 @@ interface IInputProps {
   value?: string;
 }
 
-export const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
-  (
-    { icon, type = 'text', disabled = false, value, error, inputRef, ...props },
-    ref,
-  ) => {
-    const [showPassword, setShowPassword] = useState<boolean>(false);
+export const Input: React.FC<IInputProps> = ({
+  icon,
+  type = 'text',
+  disabled = false,
+  value,
+  error,
+  inputRef,
+  ...props
+}) => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
-    return (
-      <CustomInput error={error}>
-        <div>
-          <FontAwesomeIcon icon={icon} />
-        </div>
-        <input
-          ref={inputRef}
-          type={showPassword ? 'text' : type}
-          disabled={disabled}
-          value={value}
-          {...props}
-        />
-        {type === 'password' ? (
-          <a onClick={() => setShowPassword(prevState => !prevState)}>
-            <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-          </a>
-        ) : null}
-      </CustomInput>
-    );
-  },
-);
+  return (
+    <CustomInput error={error}>
+      <div>
+        <FontAwesomeIcon icon={icon} />
+      </div>
+      <input
+        ref={inputRef}
+        type={showPassword ? 'text' : type}
+        disabled={disabled}
+        value={value}
+        {...props}
+      />
+      {type === 'password' ? (
+        <a onClick={() => setShowPassword(prevState => !prevState)}>
+          <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+        </a>
+      ) : null}
+    </CustomInput>
+  );
+};
