@@ -13,10 +13,8 @@ export const Button: React.FC<IButtonProps> = ({
   type = 'button',
   action,
 }) => {
-  const canClick = Boolean(action);
-
   return (
-    <CustomButton type={type} onClick={() => (canClick ? action() : undefined)}>
+    <CustomButton type={type} onClick={() => (action ? action() : undefined)}>
       {label}
     </CustomButton>
   );

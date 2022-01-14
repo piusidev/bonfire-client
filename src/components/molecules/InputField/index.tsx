@@ -1,10 +1,10 @@
-import React, { FC, forwardRef, useEffect } from 'react';
+import React, { FC, forwardRef } from 'react';
 
 import { Label, FormError, Input } from '../../atoms';
 import { InputContainer } from './styles';
 
 interface IInputProps {
-  icon?: string | any;
+  icon?: any;
   label?: string;
   type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
   disabled?: boolean;
@@ -20,11 +20,9 @@ export const InputField: FC<IInputProps> = forwardRef<
     { icon, label, type = 'text', disabled = false, value, error, ...props },
     ref,
   ) => {
-    const hasLabel = Boolean(label);
-
     return (
       <InputContainer>
-        {hasLabel ? <Label text={label} /> : null}
+        {label ? <Label text={label} /> : null}
         <Input
           inputRef={ref}
           error={error}
