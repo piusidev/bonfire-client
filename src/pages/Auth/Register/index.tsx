@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Login: React.FC = () => {
-  return <></>;
-};
+import { RegisterTemplate } from '../../../components/templates';
 
-export default Login;
+export const Register: React.FC = () => {
+  return <RegisterTemplate />;
+};

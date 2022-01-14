@@ -5,7 +5,6 @@ import { GlobalStyle } from './styles/global';
 import Routes from './routes';
 
 const App: React.FC = () => {
-  console.log(process.env);
   return (
     <ThemeProvider>
       <GlobalStyle />

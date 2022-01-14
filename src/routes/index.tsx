@@ -1,14 +1,20 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Routes as Switch,
   Route,
 } from 'react-router-dom';
 
-import { RegisterTemplate } from '../components/templates';
+import { Register } from '../pages';
 
 const Routes: React.FC = () => {
-  return <RegisterTemplate />;
+  return (
+    <Router>
+      <Switch>
+        <Route path="/main_window" element={<Register />} />
+      </Switch>
+    </Router>
+  );
 };
 
 export default Routes;
