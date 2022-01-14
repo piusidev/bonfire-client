@@ -1,9 +1,7 @@
-import React, { FC, forwardRef, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 
-import { Label, FormError } from '../../atoms';
-import { InputContainer, CustomInput, Error } from './styles';
+import { Label, FormError, Input } from '../../atoms';
+import { InputContainer } from './styles';
 
 interface IInputProps {
   icon?: string | any;
@@ -14,39 +12,29 @@ interface IInputProps {
   value?: string;
 }
 
-export const InputField: FC<IInputProps> = forwardRef<
-  HTMLInputElement,
-  IInputProps
->(
-  (
-    { icon, label, type = 'text', disabled = false, value, error, ...props },
-    ref,
-  ) => {
-    const hasLabel = Boolean(label);
-    const [showPassword, setShowPassword] = useState<boolean>(false);
+export const InputField: React.FC<IInputProps> = ({
+  icon,
+  label,
+  type = 'text',
+  disabled = false,
+  value,
+  error,
+  ...props
+}) => {
+  const hasLabel = Boolean(label);
 
-    return (
-      <InputContainer>
-        {hasLabel ? <Label text={label} /> : null}
-        <CustomInput error={error}>
-          <div>
-            <FontAwesomeIcon icon={icon} />
-          </div>
-          <input
-            ref={ref}
-            type={showPassword ? 'text' : type}
-            disabled={disabled}
-            value={value}
-            {...props}
-          />
-          {type === 'password' ? (
-            <a onClick={() => setShowPassword(prevState => !prevState)}>
-              <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-            </a>
-          ) : null}
-        </CustomInput>
-        {error ? <FormError text={error} /> : null}
-      </InputContainer>
-    );
-  },
-);
+  return (
+    <InputContainer>
+      {hasLabel ? <Label text={label} /> : null}
+      <Input
+        error={error}
+        icon={icon}
+        type={type}
+        disabled={disabled}
+        value={value}
+        {...props}
+      />
+      {error ? <FormError text={error} /> : null}
+    </InputContainer>
+  );
+};

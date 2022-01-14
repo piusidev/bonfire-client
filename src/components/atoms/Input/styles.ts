@@ -6,14 +6,6 @@ interface ICustomInputProps {
   error?: string;
 }
 
-export const InputContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-
-  gap: 0.5rem;
-`;
-
 export const CustomInput = styled.div<ICustomInputProps>`
   display: flex;
   padding: 0.5rem;
