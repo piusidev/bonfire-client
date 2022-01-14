@@ -5,6 +5,7 @@ import { faEye, faEyeSlash, IconName } from '@fortawesome/free-solid-svg-icons';
 import { CustomInput } from './styles';
 
 interface IInputProps {
+  inputRef: any;
   icon: IconName;
   label?: string;
   type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
@@ -14,7 +15,10 @@ interface IInputProps {
 }
 
 export const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
-  ({ icon, type = 'text', disabled = false, value, error, ...props }, ref) => {
+  (
+    { icon, type = 'text', disabled = false, value, error, inputRef, ...props },
+    ref,
+  ) => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
     return (
@@ -23,7 +27,7 @@ export const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
           <FontAwesomeIcon icon={icon} />
         </div>
         <input
-          ref={ref}
+          ref={inputRef}
           type={showPassword ? 'text' : type}
           disabled={disabled}
           value={value}

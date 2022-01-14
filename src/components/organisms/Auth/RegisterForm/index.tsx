@@ -1,7 +1,7 @@
 /* eslint-disable default-case */
 import React from 'react';
 import { faUser, faKey, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { createUser } from './use-cases';
@@ -23,8 +23,12 @@ export const RegisterForm: React.FC = () => {
     createUser(data);
   };
 
+  const onError: SubmitErrorHandler<IUser> = error => {
+    console.log(error);
+  };
+
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit, onError)}>
       <InputField
         label="Name"
         name="name"

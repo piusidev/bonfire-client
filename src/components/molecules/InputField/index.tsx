@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, forwardRef, useEffect } from 'react';
 
 import { Label, FormError, Input } from '../../atoms';
 import { InputContainer } from './styles';
@@ -12,29 +12,30 @@ interface IInputProps {
   value?: string;
 }
 
-export const InputField: React.FC<IInputProps> = ({
-  icon,
-  label,
-  type = 'text',
-  disabled = false,
-  value,
-  error,
-  ...props
-}) => {
-  const hasLabel = Boolean(label);
+export const InputField: FC<IInputProps> = forwardRef<
+  HTMLInputElement,
+  IInputProps
+>(
+  (
+    { icon, label, type = 'text', disabled = false, value, error, ...props },
+    ref,
+  ) => {
+    const hasLabel = Boolean(label);
 
-  return (
-    <InputContainer>
-      {hasLabel ? <Label text={label} /> : null}
-      <Input
-        error={error}
-        icon={icon}
-        type={type}
-        disabled={disabled}
-        value={value}
-        {...props}
-      />
-      {error ? <FormError text={error} /> : null}
-    </InputContainer>
-  );
-};
+    return (
+      <InputContainer>
+        {hasLabel ? <Label text={label} /> : null}
+        <Input
+          inputRef={ref}
+          error={error}
+          icon={icon}
+          type={type}
+          disabled={disabled}
+          value={value}
+          {...props}
+        />
+        {error ? <FormError text={error} /> : null}
+      </InputContainer>
+    );
+  },
+);
