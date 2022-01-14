@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEye,
+  faEyeSlash,
+  IconDefinition,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { CustomInput } from './styles';
 
 interface IInputProps {
   inputRef: any;
-  icon: any;
+  icon: IconDefinition;
   label?: string;
   type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
   disabled?: boolean;

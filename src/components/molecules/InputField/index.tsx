@@ -1,10 +1,11 @@
 import React, { FC, forwardRef } from 'react';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 import { Label, FormError, Input } from '../../atoms';
 import { InputContainer } from './styles';
 
 interface IInputProps {
-  icon?: any;
+  icon?: IconDefinition;
   label?: string;
   type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'search';
   disabled?: boolean;
