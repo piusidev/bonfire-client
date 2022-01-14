@@ -5,7 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 
-import { RegisterTemplate } from '../templates';
+import { RegisterTemplate } from '../components/templates';
 
 const Routes: React.FC = () => {
   return <RegisterTemplate />;

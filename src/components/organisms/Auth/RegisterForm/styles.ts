@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { themeConfig } from '../../../styles/themes';
+import { themeConfig } from '../../../../styles/themes';
 
 export const Form = styled.form`
   background: ${props => props.theme.colors.background};

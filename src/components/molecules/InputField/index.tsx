@@ -2,7 +2,8 @@ import React, { FC, forwardRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-import { InputField, CustomInput, Label, Error } from './styles';
+import { Label } from '../../atoms/Label';
+import { InputContainer, CustomInput, Error } from './styles';
 
 interface IInputProps {
   icon?: string | any;
@@ -13,7 +14,10 @@ interface IInputProps {
   value?: string;
 }
 
-export const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
+export const InputField: FC<IInputProps> = forwardRef<
+  HTMLInputElement,
+  IInputProps
+>(
   (
     { icon, label, type = 'text', disabled = false, value, error, ...props },
     ref,
@@ -22,8 +26,8 @@ export const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
     return (
-      <InputField>
-        {hasLabel ? <Label>{label}</Label> : null}
+      <InputContainer>
+        {hasLabel ? <Label text={label} /> : null}
         <CustomInput error={error}>
           <div>
             <FontAwesomeIcon icon={icon} />
@@ -42,7 +46,7 @@ export const Input: FC<IInputProps> = forwardRef<HTMLInputElement, IInputProps>(
           ) : null}
         </CustomInput>
         {error ? <Error>{error}</Error> : null}
-      </InputField>
+      </InputContainer>
     );
   },
 );

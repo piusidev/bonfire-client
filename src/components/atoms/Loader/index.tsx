@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { LoaderSection } from './styles';
-import BonfireGif from '../../assets/images/Loader/bonfire.gif';
+import BonfireGif from '../../../assets/images/Loader/bonfire.gif';
 
 export const Loader: React.FC = () => {
   return (

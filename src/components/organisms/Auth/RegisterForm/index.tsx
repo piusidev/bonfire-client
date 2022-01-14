@@ -6,7 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import { createUser } from './use-cases';
 import { validations } from './validations';
-import { Input, Button } from '../../../common/UI';
+import { Button } from '../../../atoms';
+import { InputField } from '../../../molecules';
 import { Form } from './styles';
 
 export const RegisterForm: React.FC = () => {
@@ -24,21 +25,21 @@ export const RegisterForm: React.FC = () => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Input
+      <InputField
         label="Name"
         name="name"
         icon={faUser}
         error={errors.name?.message}
         {...register('name')}
       />
-      <Input
+      <InputField
         label="Email"
         name="email"
         icon={faEnvelope}
         error={errors.email?.message}
         {...register('email')}
       />
-      <Input
+      <InputField
         label="Password"
         icon={faKey}
         type="password"
@@ -46,7 +47,7 @@ export const RegisterForm: React.FC = () => {
         error={errors.password?.message}
         {...register('password')}
       />
-      <Input
+      <InputField
         label="Repeat password"
         icon={faKey}
         type="password"
