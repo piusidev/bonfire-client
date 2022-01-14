@@ -2,7 +2,7 @@ import React, { FC, forwardRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-import { Label } from '../../atoms/Label';
+import { Label, FormError } from '../../atoms';
 import { InputContainer, CustomInput, Error } from './styles';
 
 interface IInputProps {
@@ -45,7 +45,7 @@ export const InputField: FC<IInputProps> = forwardRef<
             </a>
           ) : null}
         </CustomInput>
-        {error ? <Error>{error}</Error> : null}
+        {error ? <FormError text={error} /> : null}
       </InputContainer>
     );
   },
