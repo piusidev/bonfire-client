@@ -10,12 +10,12 @@ interface IFluidContainerProps {
 export const FluidContainer = styled.div<IFluidContainerProps>`
   display: flex;
   margin: 0 auto;
+  padding: 2rem;
 
   align-items: ${props => props.align || 'center'};
   justify-content: ${props => props.justify || 'center'};
 
   max-width: ${themeConfig.sizes.container.lg};
-
   height: 100vh;
 
   @media (max-width: ${themeConfig.breakpoints.sm}) {
