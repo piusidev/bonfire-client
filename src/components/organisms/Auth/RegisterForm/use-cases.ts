@@ -1,10 +1,7 @@
 import { api } from '../../../../services/api';
 
-export const createUser = (params: IUser) => {
-  const data = JSON.stringify(params);
+export const createUser = async (user: IUser): Promise<IUser> => {
+  const response = await api.post('/signup', JSON.stringify(user));
 
-  const response = api.post('/signup', data);
-
-  response.then(resp => console.log(resp.data));
-  response.catch(err => console.log(err));
+  return response.data;
 };

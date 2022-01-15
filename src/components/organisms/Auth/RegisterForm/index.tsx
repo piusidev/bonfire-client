@@ -7,6 +7,7 @@ import {
   FormProvider,
 } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useMutation, QueryClient } from 'react-query';
 
 import { createUser } from './use-cases';
 import { validations } from './validations';
@@ -15,6 +16,22 @@ import { InputField } from '../../../molecules';
 import { Form } from './styles';
 
 export const RegisterForm: React.FC = () => {
+  const queryClient = new QueryClient();
+  const userCache = queryClient.getQueryData<IUser>('user');
+  const mutation = useMutation(createUser, {
+    onMutate: data => {
+      if (!userCache) return;
+
+      if (data.email === userCache?.email) {
+        mutation.reset();
+        throw new Error('Email already exists');
+      }
+    },
+    onSuccess: data => {
+      queryClient.setQueryData('user', data);
+    },
+  });
+
   const methods = useForm<IUser>({
     resolver: yupResolver(validations),
   });
@@ -22,7 +39,7 @@ export const RegisterForm: React.FC = () => {
   const { errors } = methods.formState;
 
   const onSubmit: SubmitHandler<IUser> = data => {
-    createUser(data);
+    mutation.mutate(data);
   };
 
   const onError: SubmitErrorHandler<IUser> = error => {
@@ -55,7 +72,7 @@ export const RegisterForm: React.FC = () => {
           label="Repeat password"
           icon={faKey}
           type="password"
-          name="password"
+          name="passwordConfirmation"
           error={errors.passwordConfirmation?.message}
         />
       </FormProvider>
