@@ -19,9 +19,9 @@ const Routes: React.FC = () => {
       <Router>
         <ThemeProvider>
           <GlobalStyle />
-          <ReactQueryDevtools initialIsOpen />
+          <ReactQueryDevtools />
           <Switch>
-            <Route path="/main_window" element={<Register />} />
+            <Route path="/" element={<Register />} />
           </Switch>
         </ThemeProvider>
       </Router>

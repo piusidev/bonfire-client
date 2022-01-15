@@ -2,13 +2,11 @@
   "name": "bonfire-client",
   "productName": "bonfire-client",
   "version": "1.0.0",
-  "description": "My Electron application description",
-  "main": ".webpack/main",
+  "description": "Front-end for Bonfire Application",
+  "main": "main.js",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
+    "start": "webpack serve",
+    "build": "webpack",
     "lint": "eslint --ext .ts,.tsx .",
     "test:unit": "jest"
   },
@@ -18,62 +16,7 @@
     "email": "leopidev@gmail.com"
   },
   "license": "MIT",
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "bonfire_client"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ],
-      "plugins": [
-        [
-          "@electron-forge/plugin-webpack",
-          {
-            "mainConfig": "webpack/webpack.main.config.js",
-            "devContentSecurityPolicy": "connect-src 'self' https://bonfire-dev-api.herokuapp.com 'unsafe-eval'",
-            "renderer": {
-              "config": "webpack/webpack.renderer.config.js",
-              "entryPoints": [
-                {
-                  "html": "./public/index.html",
-                  "js": "./src/index.tsx",
-                  "name": "main_window",
-                  "preload": {
-                    "js": "./electron/renderer.ts"
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      ]
-    }
-  },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.61",
-    "@electron-forge/maker-deb": "^6.0.0-beta.61",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.61",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
-    "@electron-forge/maker-zip": "^6.0.0-beta.61",
-    "@electron-forge/plugin-webpack": "^6.0.0-beta.61",
     "@types/jest": "^27.0.3",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
@@ -82,11 +25,7 @@
     "@types/styled-components": "^5.1.18",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
-    "@vercel/webpack-asset-relocator-loader": "^1.7.0",
     "css-loader": "^6.5.1",
-    "electron": "16.0.4",
-    "electron-devtools-installer": "^3.2.0",
-    "electron-is-dev": "^2.0.0",
     "eslint": "^8.4.1",
     "eslint-config-airbnb": "^19.0.2",
     "eslint-config-prettier": "^8.3.0",
@@ -98,13 +37,16 @@
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "file-loader": "^6.2.0",
-    "fork-ts-checker-webpack-plugin": "^6.5.0",
+    "html-webpack-plugin": "^5.5.0",
     "jest": "^27.4.5",
-    "node-loader": "^2.0.0",
+    "mini-css-extract-plugin": "^2.5.0",
     "prettier": "^2.5.1",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.2.6",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.3"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -113,8 +55,6 @@
     "@hookform/resolvers": "^2.8.5",
     "axios": "^0.24.0",
     "dotenv-webpack": "^7.0.3",
-    "electron-squirrel-startup": "^1.0.0",
-    "framer-motion": "^4.1.17",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.22.5",
