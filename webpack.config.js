@@ -9,6 +9,9 @@ module.exports = {
     path: path.resolve(__dirname, "./dist"),
     filename: "main.js",
   },
+  devServer: {
+    port: 3000
+  },
   module: {
     rules: [
       {
@@ -31,6 +34,9 @@ module.exports = {
         },
       },
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.json']
   },
   plugins: [
     new HtmlWebpackPlugin({
