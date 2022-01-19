@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Fix lint errors
-        run: npm run lint --fix
+        run: npm run lint:ix
         
   unit-test:
     runs-on: ubuntu-latest
@@ -40,5 +40,5 @@ jobs:
       - name: Install node_modules
         run: npm install
      
-      - name: Run unit tests
-        run: npm run test:unit
+      - name: Run e2e tests
+        run: npm run test:e2e

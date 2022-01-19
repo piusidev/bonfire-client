@@ -26,6 +26,8 @@ export const FluidContainer = styled.div<IFluidContainerProps>`
         width: 100vw;
       `;
     }
+
+    return false;
   }}
 
   @media (max-width: ${themeConfig.breakpoints.sm}) {

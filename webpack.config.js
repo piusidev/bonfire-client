@@ -4,9 +4,9 @@ const path = require('path');
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
-  entry: path.resolve(__dirname, "./src/index.tsx"),
+  entry: path.resolve(__dirname, "src/index.tsx"),
   output: {
-    path: path.resolve(__dirname, "./dist"),
+    path: path.resolve(__dirname, "dist"),
     filename: "main.js",
   },
   devServer: {
@@ -24,11 +24,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
       },
       {
         test: /\.(png|jpe?g|gif|woff|woff2|eot|ttf|otf)$/i,
-        use: 'file-loader',
+        loader: 'file-loader',
         options: {
           name: '[path][name].[ext]',
         },
