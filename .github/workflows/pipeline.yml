@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Fix lint errors
-        run: npm run lint:ix
+        run: npm run lint:fix
         
   unit-test:
     runs-on: ubuntu-latest
