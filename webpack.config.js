@@ -24,11 +24,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|woff|woff2|eot|ttf|otf)$/i,
-        loader: 'file-loader',
+        use: 'file-loader',
         options: {
           name: '[path][name].[ext]',
         },
