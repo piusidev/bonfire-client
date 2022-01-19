@@ -78,7 +78,8 @@
       {
         "devDependencies": true
       }
-    ]
+    ],
+    "treatUndefinedAsUnspecified": true
   },
   "settings": {
     "import/resolver": {

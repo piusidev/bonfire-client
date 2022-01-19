@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { themeConfig } from '../../../../styles/themes';
 
 export const Form = styled.form`
-  background: ${props => props.theme.colors.background};
-
   width: 500px;
   display: flex;
   flex-direction: column;
@@ -16,4 +14,8 @@ export const Form = styled.form`
   padding: 1rem;
 
   gap: 0.5rem;
+
+  @media (max-width: ${themeConfig.breakpoints.sm}) {
+    width: 100%;
+  }
 `;

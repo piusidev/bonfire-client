@@ -5,7 +5,7 @@ import { RegisterForm } from '../../../organisms';
 
 export const RegisterTemplate: React.FC = () => {
   return (
-    <Container>
+    <Container fullscreen={true}>
       <RegisterForm />
     </Container>
   );
