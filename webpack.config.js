@@ -3,7 +3,7 @@ const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
 module.exports = {
-  mode: process.env.NODE_ENV,
+  mode: process.env.NODE_ENV || 'development',
   entry: path.resolve(__dirname, "src/index.tsx"),
   output: {
     path: path.resolve(__dirname, "dist"),
