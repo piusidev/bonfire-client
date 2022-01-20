@@ -1,5 +1,3 @@
-const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
-const styledComponentsTransformer = createStyledComponentsTransformer();
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
@@ -23,9 +21,6 @@ module.exports = {
           extensions: ['.ts', '.tsx', '.js', 'jsx', '.json'],
         },
         loader: 'ts-loader',
-        options: {
-          getCustomTransformers: () => ({ before: [styledComponentsTransformer] })
-        }
       },
       {
         test: /\.css$/,
